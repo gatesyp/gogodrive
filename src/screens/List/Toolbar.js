@@ -42,18 +42,10 @@ class Toolbar extends PureComponent {
         <View>
           <Row style={styles.toolbarContainer}>
             <View style={styles.titleContainer}>
-              <Text style={styles.titleText}>My Checks</Text>
+              <Text style={styles.titleText}>GoGo Drive</Text>
             </View>
-            <View style={styles.menuIconContainer}>
-              <Ionicons name="md-menu" size={24} color="#008dff" />
-            </View>
-            <View style={styles.menuIconContainer}>
-              <MaterialCommunityIcons
-                name="file-document"
-                size={24}
-                color="#008dff"
-              />
-            </View>
+            
+            
           </Row>
         </View>
       </View>
@@ -90,6 +82,8 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: 24,
     fontWeight: '900',
+
+    textAlign: 'center'
   },
   backContainer: {
     flex: 1,
