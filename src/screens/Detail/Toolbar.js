@@ -19,9 +19,6 @@ class Toolbar extends PureComponent {
                 <Ionicons name="ios-arrow-back" size={24} color="white" />
                 <Text style={styles.titleBackText}>Back</Text>
               </Row>
-              <View style={styles.menuIconContainer}>
-                <Feather name="share" size={24} color="white" />
-              </View>
             </Row>
           </View>
         </TouchableWithoutFeedback>
@@ -39,7 +36,7 @@ const styles = StyleSheet.create({
   },
   statusBar: {
     height: 24,
-    backgroundColor: 'white',
+    backgroundColor: '#008dff',
   },
   titleBackText: {
     color: 'white',

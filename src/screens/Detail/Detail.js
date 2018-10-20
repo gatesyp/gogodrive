@@ -55,7 +55,7 @@ class Detail extends PureComponent {
             <Text style={styles.amountText}>{item.amount}</Text>
           </Row>
           <Text style={styles.vatText}>
-            {`${item.amount} X1 (Including VAT 10%)`}
+            {}
           </Text>
         </View>
       </TranslateYAndOpacity>

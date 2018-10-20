@@ -18,21 +18,8 @@ class BottomButtons extends PureComponent {
 
     return (
       <Row style={styles.container}>
-        <View style={styles.flexContainer}>
-          <Button
-            isHidden={isHidden}
-            name="present"
-            backgroundColor="#008dff"
-          />
-        </View>
-        <View style={styles.flexContainer}>
-          <Button
-            isHidden={isHidden}
-            name="wallet"
-            backgroundColor="#ff2d4c"
-            delay={125}
-          />
-        </View>
+        
+        
       </Row>
     );
   }
