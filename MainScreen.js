@@ -1,5 +1,8 @@
 import React from 'react';
-import { InteractionManager, StyleSheet, Text, View } from 'react-native';
+import { InteractionManager, StyleSheet } from 'react-native';
+
+import { Container, Header, Content, Card, CardItem, Body, Text } from 'native-base';
+
 
 export default class LogScreen extends React.Component {
     constructor(props) {
@@ -7,9 +10,20 @@ export default class LogScreen extends React.Component {
     }
     render() {
         return (
-            <View>
-                <Text>HELLO</Text>
-            </View>
+            <Container>
+                <Header />
+                <Content>
+                    <Card>
+                        <CardItem>
+                            <Body>
+                                <Text>
+                                //Your text here
+                                </Text>
+                            </Body>
+                        </CardItem>
+                    </Card>
+                </Content>
+            </Container>
         );
     }
 }
