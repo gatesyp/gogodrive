@@ -58,7 +58,7 @@ export default class LogScreen extends React.Component {
         if(!this.state.status) {
             let { status } = await Permissions.askAsync(Permissions.LOCATION);
             this.setState({ status : status })
-        }        
+        }
 
         let location = await Location.getCurrentPositionAsync({ enableHighAccuracy: true });
 
@@ -198,7 +198,7 @@ export default class LogScreen extends React.Component {
             }
             this.setState({ accelerations: accelerations, hardStops: hardStops, swerves: swerves, accelerometerData: storedAccelerometerData })
         });
-        Accelerometer.setUpdateInterval(4000);
+        Accelerometer.setUpdateInterval(1000);
 
     }
 
