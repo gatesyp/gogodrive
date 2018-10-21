@@ -19,7 +19,7 @@ export default class Settings extends React.Component {
 
     render() {
         return (
-            <Container style={{width: "100%", height: "100%"}}>
+            <Container style={{width: "100%", height: "100%", backgroundColor: "#F5F5F5"}}>
                 <Toolbar
                     isHidden={false}
                 />
