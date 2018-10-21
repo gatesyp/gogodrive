@@ -6,6 +6,11 @@ import { Row, Col, Grid } from 'native-base'
 import translateAndOpacity from '../../animations/translateAndOpacity'
 
 class Toolbar extends PureComponent {
+
+    onSwipeDown(gestureState) {
+        console.log("down")
+    }
+
     render() {
         const { onBackPress, rating } = this.props
 
@@ -18,7 +23,7 @@ class Toolbar extends PureComponent {
                             <Col size={33}>
                                 <Text style={styles.titleBackText}>
                                     <View>
-                                        <Ionicons style={{top: 3}} name="ios-arrow-back" size={24} color="white" />
+                                        <Ionicons style={{top: 3}} name="ios-arrow-down" size={24} color="white" />
                                     </View>
                                     <View>
                                         <Text style={styles.titleBackText2}>

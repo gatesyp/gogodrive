@@ -7,7 +7,7 @@ import {
     StyleSheet,
 } from 'react-native'
 
-import { MapView } from 'expo'
+import { MapView, Constants } from 'expo'
 import { SharedElement, TranslateYAndOpacity } from 'react-native-motion'
 
 import { ListItem, Row } from '../../components'
@@ -111,7 +111,7 @@ class Detail extends PureComponent {
                 </View>
 
                 <View>
-                    {index == 3 ? (
+                    {index == 3 && Constants.isDevice ? (
                         <View style={{
                             margin: 20,
                             marginTop: 10,
