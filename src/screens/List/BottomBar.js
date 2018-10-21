@@ -78,7 +78,6 @@ class BottomBar extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    ...getPlatformElevation(4),
     height: 56,
     paddingHorizontal: 16,
     justifyContent: 'center',
@@ -104,10 +103,6 @@ const styles = StyleSheet.create({
   titleBackText: {
     color: 'white',
     marginLeft: 8,
-  },
-  titleText: {
-    fontSize: 24,
-    fontWeight: '900',
   },
   menuIconContainer: {
     width: 40,

@@ -1,57 +1,101 @@
-import React, { PureComponent } from 'react';
-import { Text, View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import { MaterialCommunityIcons, Ionicons, Feather } from '@expo/vector-icons';
+import React, { PureComponent } from 'react'
+import { Text, View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
 
-import { Row } from '../../components';
-import translateAndOpacity from '../../animations/translateAndOpacity';
+import { Row, Col, Grid } from 'native-base'
+import translateAndOpacity from '../../animations/translateAndOpacity'
 
 class Toolbar extends PureComponent {
-  render() {
-    const { onBackPress } = this.props;
 
-    return (
-      <View style={styles.container}>
-        <View style={styles.statusBar} />
-        <TouchableWithoutFeedback onPress={onBackPress}>
-          <View>
-            <Row style={styles.toolbarContainer}>
-              <Row style={styles.backContainer}>
-                <Ionicons name="ios-arrow-back" size={24} color="white" />
-                <Text style={styles.titleBackText}>Back</Text>
-              </Row>
-            </Row>
-          </View>
-        </TouchableWithoutFeedback>
-      </View>
-    );
-  }
+    onSwipeDown(gestureState) {
+        console.log("down")
+    }
+
+    render() {
+        const { onBackPress, rating } = this.props
+
+        return (
+            <View style={styles.toolbarContainer}>
+                <View style={styles.statusBar} />
+                <TouchableWithoutFeedback onPress={onBackPress}>
+                    <Grid style={{width: "100%"}}>
+                        <Row style={styles.row}>
+                            <Col size={33}>
+                                <Text style={styles.titleBackText}>
+                                    <View>
+                                        <Ionicons style={{top: 3}} name="ios-arrow-down" size={24} color="white" />
+                                    </View>
+                                    <View>
+                                        <Text style={styles.titleBackText2}>
+                                            {"Back"}
+                                        </Text>
+                                    </View>
+                                </Text>
+                            </Col>
+                            <Col size={33}>
+                                <Text style={styles.rating1}>
+                                    Rating:
+                                    <Text style={styles.rating2}>
+                                        {" " + rating + "/10"}
+                                    </Text>
+                                </Text>
+                            </Col>
+                            <Col size={33}/>
+                        </Row>
+                    </Grid>
+                </TouchableWithoutFeedback>
+            </View>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {},
-  toolbarContainer: {
-    height: 56,
-    alignItems: 'center',
-    paddingHorizontal: 16,
-  },
-  statusBar: {
-    height: 24,
-    backgroundColor: '#008dff',
-  },
-  titleBackText: {
-    color: 'white',
-    marginLeft: 8,
-  },
-  backContainer: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  menuIconContainer: {
-    width: 40,
-    height: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    toolbarContainer: {
+        height: 56,
+        alignItems: 'center',
+        paddingHorizontal: 16,
+    },
+    rating1: {
+        alignSelf: "center",
+        fontSize: 18,
+        fontFamily: "Montserrat_regular",
+        color: "white",
+        top: 3
+    },
+    rating2: {
+        alignSelf: "center",
+        fontSize: 18,
+        fontFamily: "Montserrat_bold",
+        color: "white",
+        top: 3
+    },
+    row: {
+        top: 9
+    },
+    statusBar: {
+        height: 24,
+        backgroundColor: '#008dff',
+    },
+    titleBackText: {
+        color: 'white',
+        marginLeft: 3,
+        fontSize: 18,
+        fontFamily: "Montserrat_regular",
+        textAlignVertical: "top"
+    },
+    titleBackText2: {
+        color: 'white',
+        marginLeft: 8,
+        fontSize: 18,
+        fontFamily: "Montserrat_regular",
+        textAlignVertical: "top",
+    },
+    menuIconContainer: {
+        width: 40,
+        height: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+})
 
-export default translateAndOpacity(Toolbar);
+export default translateAndOpacity(Toolbar)

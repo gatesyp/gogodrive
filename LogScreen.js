@@ -1,16 +1,16 @@
-import React from 'react';
-import { InteractionManager, StyleSheet, Text, View } from 'react-native';
-import { SharedElementRenderer } from 'react-native-motion';
+import React from 'react'
+import { InteractionManager, StyleSheet, View } from 'react-native'
+import { SharedElementRenderer } from 'react-native-motion'
 
-import List from './src/screens/List/List';
-import Detail from './src/screens/Detail/Detail';
-import ToolbarBackground from './src/screens/Detail/ToolbarBackground';
+import List from './src/screens/List/List'
+import Detail from './src/screens/Detail/Detail'
+import ToolbarBackground from './src/screens/Detail/ToolbarBackground'
 
 export default class LogScreen extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
 
-        console.disableYellowBox = true
+        // console.disableYellowBox = true
         this.state = {
             selectedItem: null,
             // phase of animation
@@ -29,36 +29,41 @@ export default class LogScreen extends React.Component {
             // phase-4
             // hide detail toolbar, hide detail bootom bar, move item back to scrool view
             phase: 'phase-0',
-        };
+        }
     }
+
     onItemPressed = item => {
         this.setState({
             phase: 'phase-1',
             selectedItem: item,
-        });
-    };
+        })
+    }
+
     onBackPressed = () => {
         this.setState({
             phase: 'phase-3',
-        });
-    };
+        })
+    }
+
     onSharedElementMovedToDestination = () => {
         InteractionManager.runAfterInteractions(() => {
             this.setState({
                 phase: 'phase-2',
-            });
-        });
-    };
+            })
+        })
+    }
+
     onSharedElementMovedToSource = () => {
         InteractionManager.runAfterInteractions(() => {
             this.setState({
                 selectedItem: null,
                 phase: 'phase-0',
-            });
-        });
-    };
+            })
+        })
+    }
+
     renderPage() {
-        const { selectedItem, position, detailItem, phase } = this.state;
+        const { selectedItem, phase } = this.state
 
         return (
             <View style={{ flex: 1 }}>
@@ -77,17 +82,10 @@ export default class LogScreen extends React.Component {
                     onSharedElementMovedToSource={this.onSharedElementMovedToSource}
                 />
             </View>
-        );
+        )
     }
     render() {
-        const {
-      selectedItem,
-            goToDetail,
-            position,
-            detailItem,
-            goBackRequested,
-            phase,
-    } = this.state;
+        const { phase } = this.state
 
         return (
             <SharedElementRenderer>
@@ -98,12 +96,13 @@ export default class LogScreen extends React.Component {
                     {this.renderPage()}
                 </View>
             </SharedElementRenderer>
-        );
+        )
     }
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: "#F5F5F5"
     },
-});
+})

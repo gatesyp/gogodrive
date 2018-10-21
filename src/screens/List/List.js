@@ -21,7 +21,7 @@ class List extends PureComponent {
 
     onItemPress(item);
 
-    this.sharedElementRefs[item.name].moveToDestination();
+    this.sharedElementRefs[item.id].moveToDestination();
   };
   onMoveToDestinationWillStart = () => {
     this.setState({ opacityOfSelectedItem: 0 });
@@ -44,13 +44,14 @@ class List extends PureComponent {
 
     const isHidden = selectedItem && selectedItem.name !== item.name;
     const isSelected = selectedItem && selectedItem.name === item.name;
-    const id = item.name;
+    const id = item.id;
 
     return (
       <SharedElement
         easing={Easing.in(Easing.back())}
         ref={node => (this.sharedElementRefs[id] = node)}
         id={id}
+        key={id}
         onMoveToDestinationWillStart={this.onMoveToDestinationWillStart}
         onMoveToSourceDidFinish={this.onMoveToSourceDidFinish}
         getNode={this.getSharedNode}
@@ -84,7 +85,7 @@ class List extends PureComponent {
         <FlatList
           data={data}
           dataExtra={{ phase, opacityOfSelectedItem }}
-          keyExtractor={item => item.name}
+          keyExtractor={item => item.id}
           renderItem={this.renderItem}
         />
         <BottomBar isHidden={phase !== 'phase-0'} />
