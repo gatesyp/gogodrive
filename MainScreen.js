@@ -56,7 +56,7 @@ export default class LogScreen extends React.Component {
         Accelerometer.setUpdateInterval(500);
     }
     _sendData = () => {
-        fetch('http://ffce8095.ngrok.io/data', {
+        fetch('http://28281e22.ngrok.io/alert', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -64,8 +64,7 @@ export default class LogScreen extends React.Component {
             },
             body: JSON.stringify({
                 // locationData: this.state.location,
-                accelerometerData: this.state.accelerometer,
-                velocity: this.state.velocity
+                location: this.state.transientLocation,
             }),
         });
 
@@ -97,6 +96,7 @@ export default class LogScreen extends React.Component {
                     console.log("HARD STOP")
                     const hardStops = this.state.hardStops + 1;
                     this.setState({ hardStops: hardStops })
+                    this._sendData()
                 }
             }
             //swerves
