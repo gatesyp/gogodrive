@@ -7,6 +7,7 @@ import {
     StyleSheet,
 } from 'react-native'
 
+import { MapView } from 'expo';
 import { SharedElement, TranslateYAndOpacity } from 'react-native-motion'
 
 import { ListItem, Row } from '../../components'
@@ -60,6 +61,34 @@ class Detail extends PureComponent {
                         {}
                     </Text>
                 </View>
+
+                <View>
+                    {index == 3 ? (
+                        <View style={{
+                            margin: 20,
+                            marginTop: 10,
+                            height: 200
+                        }}>
+                            <MapView
+                                style={{width: "100%", height: "100%", borderRadius: 7}}
+                                cacheEnabled={true}
+                                pitchEnabled={false}
+                                rotateEnabled={false}
+                                scrollEnabled={false}
+                                zoomEnabled={false}
+                                zoomControlEnabled={false}
+                                initialRegion={{
+                                latitude: this.props.selectedItem.latitude,
+                                longitude: this.props.selectedItem.longitude,
+                                latitudeDelta: 0.0922,
+                                longitudeDelta: 0.0421,
+                                }}
+                            />
+                        </View>
+                    ) : (
+                        <View></View>
+                    )}
+                </View>
             </TranslateYAndOpacity>
         )
     }
@@ -92,7 +121,7 @@ class Detail extends PureComponent {
             abruptAccel = 0
         swerves = parseInt(selectedItem.items[2].amount)
 
-        rating = 10 - (abruptStops + abruptAccel + swerves)
+        rating = Math.floor( 10 - (abruptStops + abruptAccel + swerves) )
         if(rating < 0)
             rating = 0
         if(rating > 10)
@@ -129,6 +158,7 @@ class Detail extends PureComponent {
                 keyExtractor={(item, index) => selectedItem.id + (index + "detail")}
                 renderItem={this.renderItem}
                 />
+                
                 <BottomBar isHidden={phase === 'phase-3'} />
             </View>
         )

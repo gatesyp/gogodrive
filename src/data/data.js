@@ -6,6 +6,8 @@ const data = [
     name: 'Summit Drive, Kent, Ohio',
     amount: '8 Minutes',
     date: moment(),
+    latitude: 41.137121,
+    longitude: -81.313482,
     items: [
       {
         name: 'Abrupt Stops',
@@ -28,6 +30,8 @@ const data = [
   {
     id: "uniqueid2",
     name: 'Kent Road, Kent, Ohio',
+    latitude: 41.159303,
+    longitude: -81.437187,
     amount: '40 Minutes',
     date: moment(),
     items: [
@@ -52,6 +56,8 @@ const data = [
   {
     id: "uniqueid3",
     name: 'Call Road, Stow, Ohio',
+    latitude: 41.149028,
+    longitude: -81.360799,
     amount: '8 Minutes',
     date: moment(),
     items: [
@@ -77,6 +83,8 @@ const data = [
     id: "uniqueid4",
     name: 'Broadway Street, Akron, Ohio',
     amount: '20 Minutes',
+    latitude: 41.053544,
+    longitude: -81.528083,
     date: moment(),
     items: [
       {
@@ -101,6 +109,8 @@ const data = [
     id: "uniqueid5",
     name: 'Main Street, Kent, Ohio',
     amount: '4 Minutes',
+    latitude: 41.149028,
+    longitude: -81.360799,
     date: moment(),
     items: [
       {
