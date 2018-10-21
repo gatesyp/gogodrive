@@ -19,10 +19,15 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "expo": "^25.0.0",
+    "express": "^4.16.4",
     "moment": "^2.21.0",
+    "plotly": "^1.0.6",
     "react": "16.2.0",
     "react-native": "0.52.0",
-    "react-native-motion": "^0.2.0"
+    "react-native-motion": "^0.2.0",
+    "socket.io": "^2.1.1",
+    "twilio": "^3.23.1"
   }
 }
