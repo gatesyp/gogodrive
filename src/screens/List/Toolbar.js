@@ -42,10 +42,14 @@ class Toolbar extends PureComponent {
         <View>
           <Row style={styles.toolbarContainer}>
             <View style={styles.titleContainer}>
-              <Text style={styles.titleText}>GoGo Drive</Text>
+              <Text style={styles.titleText}>
+                GoGo  
+                <Text style={styles.titleText2}> 
+                 {" Drive"}
+                </Text>
+              </Text>
+              
             </View>
-            
-            
           </Row>
         </View>
       </View>
@@ -82,8 +86,12 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: 24,
     fontWeight: '900',
-
-    textAlign: 'center'
+    textAlign: 'center',
+  },
+  titleText2: {
+    fontStyle: 'italic',
+    textAlign: 'center',
+    fontWeight: "500",
   },
   backContainer: {
     flex: 1,

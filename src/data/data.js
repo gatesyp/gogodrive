@@ -2,7 +2,7 @@ import moment from 'moment';
 
 const data = [
   {
-    name: 'Destination:',
+    name: 'Summit Drive, Kent, Ohio',
     amount: '8 Minutes',
     date: moment(),
     isReceived: false,
@@ -26,7 +26,7 @@ const data = [
     ],
   },
   {
-    name: 'Destination:',
+    name: 'Kent Road, Kent, Ohio',
     amount: '10 Minutes',
     date: moment(),
     isReceived: true,
@@ -50,7 +50,7 @@ const data = [
     ],
   },
   {
-    name: 'Destination:',
+    name: 'Call Road, Stow, Ohio',
     amount: '8 Minutes',
     date: moment(),
     isReceived: true,
@@ -74,7 +74,7 @@ const data = [
     ],
   },
   {
-    name: 'Destination:',
+    name: 'Broadway Street, Akron, Ohio',
     amount: '20 Minutes',
     date: moment(),
     isReceived: false,
@@ -98,7 +98,7 @@ const data = [
     ],
   },
   {
-    name: 'Destination:',
+    name: 'Main Street, Kent, Ohio',
     amount: '4 Minutes',
     date: moment(),
     isReceived: true,

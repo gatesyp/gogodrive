@@ -39,6 +39,9 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 5,
+    backgroundColor: 'white',
+    borderColor: 'grey',
+    borderWidth: 1,
     ...getPlatformElevation(2),
   },
 });
