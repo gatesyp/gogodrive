@@ -2,10 +2,10 @@ import moment from 'moment';
 
 const data = [
   {
+    id: "uniqueid1",
     name: 'Summit Drive, Kent, Ohio',
     amount: '8 Minutes',
     date: moment(),
-    isReceived: false,
     items: [
       {
         name: 'Abrupt Stops',
@@ -26,22 +26,22 @@ const data = [
     ],
   },
   {
+    id: "uniqueid2",
     name: 'Kent Road, Kent, Ohio',
-    amount: '10 Minutes',
+    amount: '40 Minutes',
     date: moment(),
-    isReceived: true,
     items: [
       {
         name: 'Abrupt Stops',
-        amount: '4',
+        amount: '3',
       },
       {
         name: 'Abrupt Accelerations',
-        amount: '8',
+        amount: '2',
       },
       {
         name: 'Swerving Instances',
-        amount: '3',
+        amount: '0',
       },
       {
         name: 'Crashes',
@@ -50,10 +50,10 @@ const data = [
     ],
   },
   {
+    id: "uniqueid3",
     name: 'Call Road, Stow, Ohio',
     amount: '8 Minutes',
     date: moment(),
-    isReceived: true,
     items: [
       {
         name: 'Abrupt Stops',
@@ -74,10 +74,10 @@ const data = [
     ],
   },
   {
+    id: "uniqueid4",
     name: 'Broadway Street, Akron, Ohio',
     amount: '20 Minutes',
     date: moment(),
-    isReceived: false,
     items: [
       {
         name: 'Abrupt Stops',
@@ -98,10 +98,10 @@ const data = [
     ],
   },
   {
+    id: "uniqueid5",
     name: 'Main Street, Kent, Ohio',
     amount: '4 Minutes',
     date: moment(),
-    isReceived: true,
     items: [
       {
         name: 'Abrupt Stops',
@@ -122,5 +122,9 @@ const data = [
     ],
   },
 ];
+
+// 1 abrupt stop per 10 minutes,
+// 1 acceleration per 10 minutes,
+// 1 swerve no matter what man
 
 export default data;

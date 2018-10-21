@@ -10,7 +10,7 @@ export default class LogScreen extends React.Component {
     constructor(props) {
         super(props);
 
-        console.disableYellowBox = true
+        // console.disableYellowBox = true
         this.state = {
             selectedItem: null,
             // phase of animation
@@ -105,5 +105,6 @@ export default class LogScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: "#F5F5F5"
     },
 });
