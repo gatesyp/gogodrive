@@ -51,6 +51,7 @@ class Toolbar extends PureComponent {
 
 const styles = StyleSheet.create({
     toolbarContainer: {
+        marginTop: 10,
         height: 56,
         alignItems: 'center',
         paddingHorizontal: 16,

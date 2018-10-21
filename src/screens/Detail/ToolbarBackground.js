@@ -46,6 +46,7 @@ class ToolbarBackground extends PureComponent {
 const styles = StyleSheet.create({
   toolbarBackground: {
     position: 'absolute',
+    borderWidth: 0,
     top: 0,
     left: 0,
     right: 0,

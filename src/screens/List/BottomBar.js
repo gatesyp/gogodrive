@@ -21,8 +21,23 @@ class BottomBar extends PureComponent {
   constructor(props) {
     super(props);
 
+    historySize = props.history ? 32 : 24
+    historyColor = props.history ? "#008DFF" : "#ddd"
+
+    homeSize = props.home ? 32 : 24
+    homeColor = props.home ? "#008DFF" : "#ddd"
+
+    settingsSize = props.settings ? 32 : 24
+    settingsColor = props.settings ? "#008DFF" : "#ddd"
+
     this.state = {
       translateY: new Animated.Value(0),
+      historySize: historySize,
+      historyColor: historyColor,
+      homeSize: homeSize,
+      homeColor: homeColor,
+      settingsSize: settingsSize,
+      settingsColor: settingsColor
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -60,15 +75,21 @@ class BottomBar extends PureComponent {
         ]}
       >
         <Row style={styles.barContainer}>
-          <View style={styles.iconContainer}>
-            <Entypo name="wallet" size={24} color="#ddd" />
-          </View>
-          <View style={styles.iconContainer}>
-            <Ionicons name="md-qr-scanner" size={32} color="#ddd" />
-          </View>
-          <View style={styles.iconContainer}>
-            <MaterialIcons name="person" size={24} color="#ddd" />
-          </View>
+            <TouchableWithoutFeedback onPress={() => updateScreen(0)}>
+                <View style={styles.iconContainer}>
+                    <Entypo name="archive" size={this.state.historySize} color={this.state.historyColor} />
+                </View>
+            </TouchableWithoutFeedback>
+            <TouchableWithoutFeedback onPress={() => updateScreen(1)}>
+                <View style={styles.iconContainer}>
+                    <Ionicons name="ios-home" size={this.state.homeSize} color={this.state.homeColor} />
+                </View>
+            </TouchableWithoutFeedback>
+            <TouchableWithoutFeedback onPress={() => updateScreen(2)}>
+                <View style={styles.iconContainer}>
+                    <MaterialIcons name="settings" size={this.state.settingsSize} color={this.state.settingsColor} />
+                </View>
+            </TouchableWithoutFeedback>
         </Row>
       </Animated.View>
     );
@@ -78,7 +99,9 @@ class BottomBar extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    height: 56,
+    paddingBottom: 20,
+    paddingTop: 10,
+    height: 75,
     paddingHorizontal: 16,
     justifyContent: 'center',
   },

@@ -88,7 +88,7 @@ class List extends PureComponent {
           keyExtractor={item => item.id}
           renderItem={this.renderItem}
         />
-        <BottomBar isHidden={phase !== 'phase-0'} />
+        <BottomBar history isHidden={phase !== 'phase-0'} />
       </View>
     );
   }

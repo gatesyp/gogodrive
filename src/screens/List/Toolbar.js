@@ -33,7 +33,8 @@ class Toolbar extends PureComponent {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#008dff"
+        backgroundColor: "#008dff",
+        borderWidth: 0
     },
     toolbarContainer: {
         height: 56,
