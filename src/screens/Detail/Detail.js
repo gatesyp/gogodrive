@@ -7,7 +7,7 @@ import {
     StyleSheet,
 } from 'react-native'
 
-import { MapView } from 'expo';
+import { MapView } from 'expo'
 import { SharedElement, TranslateYAndOpacity } from 'react-native-motion'
 
 import { ListItem, Row } from '../../components'
@@ -36,6 +36,54 @@ class Detail extends PureComponent {
 
     onMoveToSourceWillStart = () => {
         this.setState({ opacityOfDestinationItem: 0 })
+    }
+
+    regionContainingPoints(points) {
+        var minX, maxX, minY, maxY
+      
+        // init first point
+        ((point) => {
+            minX = point.latitude
+            maxX = point.latitude
+            minY = point.longitude
+            maxY = point.longitude
+        })(points[0])
+      
+        // calculate rect
+        points.map((point) => {
+            minX = Math.min(minX, point.latitude)
+            maxX = Math.max(maxX, point.latitude)
+            minY = Math.min(minY, point.longitude)
+            maxY = Math.max(maxY, point.longitude)
+        })
+      
+        var midX = (minX + maxX) / 2
+        var midY = (minY + maxY) / 2
+        var midPoint = [midX, midY]
+      
+        var deltaX = (maxX - minX) + (maxX - minX) / 0.97
+        var deltaY = (maxY - minY) + (maxY - minY) / 0.97
+      
+        return {
+            latitude: midX, longitude: midY,
+            latitudeDelta: deltaX, longitudeDelta: deltaY,
+        }
+    }
+
+    getBorderColor() {
+        minutes = parseInt( this.props.selectedItem.amount.split(" ")[0] )
+        const maxAllowedIncidents = minutes / 10
+
+        borderColor = "green"
+        if(this.props.selectedItem.items[0].amount > maxAllowedIncidents || this.props.selectedItem.items[1].amount > maxAllowedIncidents || this.props.selectedItem.items[2].amount > 0 ) {
+            borderColor = "#EBD603"
+        }
+
+        if(this.props.selectedItem.items[3].amount > 0) {
+            borderColor = "#FF2C4C"
+        }
+
+        return borderColor
     }
 
     renderItem = ({ item, index }) => {
@@ -70,20 +118,39 @@ class Detail extends PureComponent {
                             height: 200
                         }}>
                             <MapView
-                                style={{width: "100%", height: "100%", borderRadius: 7}}
-                                cacheEnabled={true}
-                                pitchEnabled={false}
-                                rotateEnabled={false}
-                                scrollEnabled={false}
-                                zoomEnabled={false}
-                                zoomControlEnabled={false}
-                                initialRegion={{
-                                latitude: this.props.selectedItem.latitude,
-                                longitude: this.props.selectedItem.longitude,
-                                latitudeDelta: 0.0922,
-                                longitudeDelta: 0.0421,
-                                }}
-                            />
+                                style={{width: "100%", height: "100%", borderRadius: 7, borderWidth: 1, borderColor: this.getBorderColor()}}
+                                cacheEnabled={false}
+                                pitchEnabled={true}
+                                rotateEnabled={true}
+                                scrollEnabled={true}
+                                zoomEnabled={true}
+                                zoomControlEnabled={true}
+                                showsCompass={true}
+                                showsBuildings={true}
+                                showsTraffic={true}
+                                showsIndoors={true}
+                                initialRegion={this.regionContainingPoints(this.props.selectedItem.route)}
+                            >
+                                <MapView.Polyline
+                                    coordinates={this.props.selectedItem.route}
+                                    strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
+                                    strokeColors={[
+                                        borderColor
+                                    ]}
+                                    strokeWidth={3}
+                                />
+
+                                {this.props.selectedItem.pois ? this.props.selectedItem.pois.map((marker, index) => {
+                                    return(
+                                        <MapView.Marker
+                                            key={index}
+                                            coordinate={marker.coord}
+                                            title={marker.title}
+                                        />
+                                    )
+                                }) : <View/>}
+
+                            </MapView>
                         </View>
                     ) : (
                         <View></View>
