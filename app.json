@@ -1,8 +1,9 @@
 {
   "expo": {
-    "name": "React Native Motion Example",
-    "slug": "react-native-motion-example",
+    "name": "Go Go Drive",
+    "slug": "go-go-drive",
     "version": "0.0.1",
-    "sdkVersion": "30.0.0"
+    "sdkVersion": "30.0.0",
+    "privacy": "public"
   }
 }
